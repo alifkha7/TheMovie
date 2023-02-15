@@ -1,6 +1,6 @@
 package com.hirocode.themovie.core.domain.usecase
 
-import com.hirocode.movieapp.core.data.Resource
+import com.hirocode.themovie.core.data.Resource
 import com.hirocode.themovie.core.domain.model.Genres
 import kotlinx.coroutines.flow.Flow
 

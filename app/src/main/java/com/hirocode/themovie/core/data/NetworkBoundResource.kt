@@ -1,6 +1,5 @@
-package com.hirocode.themovie.core.data.source
+package com.hirocode.themovie.core.data
 
-import com.hirocode.movieapp.core.data.Resource
 import com.hirocode.themovie.core.data.source.remote.network.ApiResponse
 
 import kotlinx.coroutines.flow.*
