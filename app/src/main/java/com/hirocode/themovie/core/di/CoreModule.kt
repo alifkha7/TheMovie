@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.hirocode.themovie.core.data.GenresRepository
 import com.hirocode.themovie.core.data.source.local.LocalDataSource
 import com.hirocode.themovie.core.data.source.local.room.GenresDatabase
+import com.hirocode.themovie.core.data.source.remote.DiscoverPagingSource
 import com.hirocode.themovie.core.data.source.remote.RemoteDataSource
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.domain.repository.IGenresRepository
@@ -46,5 +47,6 @@ val databaseModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
+    single { DiscoverPagingSource(get(), get()) }
     single<IGenresRepository> { GenresRepository(get(), get()) }
 }
