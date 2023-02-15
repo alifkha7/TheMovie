@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.discover.DiscoverFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/ac_genres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/genres"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_discover"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        tools:listitem="@layout/item_discover" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_discover_placeholder" />
+
+                <include layout="@layout/item_discover_placeholder" />
+
+                <include layout="@layout/item_discover_placeholder" />
+
+                <include layout="@layout/item_discover_placeholder" />
+
+            </LinearLayout>
+        </ScrollView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/text_view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/results_not_loaded"
+        android:textColor="?attr/colorOnBackground"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_retry"
+        app:layout_constraintEnd_toEndOf="@+id/rv_discover"
+        app:layout_constraintStart_toStartOf="@+id/rv_discover"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_discover"
+        app:layout_constraintEnd_toEndOf="@+id/rv_discover"
+        app:layout_constraintStart_toStartOf="@+id/rv_discover"
+        app:layout_constraintTop_toTopOf="@+id/rv_discover"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/text_view_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_results"
+        android:textColor="?attr/colorOnBackground"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_discover"
+        app:layout_constraintEnd_toEndOf="@+id/rv_discover"
+        app:layout_constraintStart_toStartOf="@+id/rv_discover"
+        app:layout_constraintTop_toTopOf="@+id/rv_discover"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

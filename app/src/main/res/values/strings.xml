@@ -3,4 +3,8 @@
     <string name="genres">Genres</string>
     <string name="discover_movie">Discover Movie</string>
     <string name="something_wrong">Oops.. something went wrong</string>
+    <string name="poster">Poster</string>
+    <string name="retry">Retry</string>
+    <string name="results_not_loaded">Results not loaded</string>
+    <string name="no_results">No results found</string>
 </resources>

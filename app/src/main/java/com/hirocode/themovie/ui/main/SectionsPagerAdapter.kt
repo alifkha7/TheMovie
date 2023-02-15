@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.hirocode.themovie.R
+import com.hirocode.themovie.ui.discover.DiscoverFragment
 import com.hirocode.themovie.ui.genres.GenresFragment
 
 private val TAB_TITLES = arrayOf(
@@ -25,7 +26,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
                 GenresFragment()
             }
             1 -> {
-                GenresFragment()
+                DiscoverFragment()
             }
             else -> {
                 getItem(position)
@@ -33,12 +34,11 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return context.resources.getString(TAB_TITLES[position])
     }
 
     override fun getCount(): Int {
-        // Show 2 total pages.
         return 2
     }
 }
