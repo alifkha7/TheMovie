@@ -5,6 +5,7 @@ import com.hirocode.themovie.core.di.databaseModule
 import com.hirocode.themovie.core.di.networkModule
 import com.hirocode.themovie.core.di.repositoryModule
 import com.hirocode.themovie.di.useCaseModule
+import com.hirocode.themovie.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,7 +22,8 @@ class MyApplication : Application() {
                     networkModule,
                     databaseModule,
                     repositoryModule,
-                    useCaseModule
+                    useCaseModule,
+                    viewModelModule,
                 )
             )
         }

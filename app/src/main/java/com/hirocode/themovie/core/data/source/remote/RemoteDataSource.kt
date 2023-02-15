@@ -13,7 +13,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getGenres(): Flow<ApiResponse<List<GenresItem>>> {
         return flow {
             try {
-                val response = apiService.getGenres("")
+                val response = apiService.getGenres("6d754783e28255649713de5092888da4")
                 val dataArray = response.genres
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
