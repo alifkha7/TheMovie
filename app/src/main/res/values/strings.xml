@@ -10,4 +10,8 @@
     <string name="title_activity_details">DetailsActivity</string>
     <string name="overview">Overview</string>
     <string name="backdrop">Backdrop</string>
+    <string name="reviews">Reviews</string>
+    <string name="author">Author</string>
+    <string name="content">Content</string>
+    <string name="no_reviews">No reviews found</string>
 </resources>
