@@ -4,15 +4,18 @@ import androidx.room.Room
 import com.hirocode.themovie.core.data.DiscoverRepository
 import com.hirocode.themovie.core.data.GenresRepository
 import com.hirocode.themovie.core.data.ReviewsRepository
+import com.hirocode.themovie.core.data.VideosRepository
 import com.hirocode.themovie.core.data.source.local.LocalDataSource
 import com.hirocode.themovie.core.data.source.local.room.GenresDatabase
 import com.hirocode.themovie.core.data.source.remote.DiscoverPagingSource
 import com.hirocode.themovie.core.data.source.remote.RemoteDataSource
 import com.hirocode.themovie.core.data.source.remote.ReviewsPagingSource
+import com.hirocode.themovie.core.data.source.remote.VideosDataSource
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.domain.repository.IDiscoverRepository
 import com.hirocode.themovie.core.domain.repository.IGenresRepository
 import com.hirocode.themovie.core.domain.repository.IReviewsRepository
+import com.hirocode.themovie.core.domain.repository.IVideosRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -54,7 +57,9 @@ val repositoryModule = module {
     single { RemoteDataSource(get()) }
     single { DiscoverPagingSource(get(), get()) }
     single { ReviewsPagingSource(get(), get()) }
+    single { VideosDataSource(get()) }
     single<IGenresRepository> { GenresRepository(get(), get()) }
     single<IDiscoverRepository> { DiscoverRepository(get()) }
     single<IReviewsRepository> { ReviewsRepository(get()) }
+    single<IVideosRepository> { VideosRepository(get()) }
 }

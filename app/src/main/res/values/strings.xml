@@ -14,4 +14,7 @@
     <string name="author">Author</string>
     <string name="content">Content</string>
     <string name="no_reviews">No reviews found</string>
+    <string name="trailer">Trailer</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="play">Play</string>
 </resources>

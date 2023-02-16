@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.hirocode.themovie.core.domain.model.Movie
 import com.hirocode.themovie.core.ui.LoadingStateAdapter
 import com.hirocode.themovie.core.ui.ReviewsAdapter
+import com.hirocode.themovie.core.ui.VideosAdapter
 import com.hirocode.themovie.databinding.ActivityDetailsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.lang.StrictMath.abs
@@ -34,6 +35,7 @@ class DetailsActivity : AppCompatActivity() {
 
         setDetail(movie)
         getReviews(movie)
+        getVideos(movie)
     }
 
     private fun setDetail(movie: Movie?) {
@@ -82,6 +84,17 @@ class DetailsActivity : AppCompatActivity() {
         detailsViewModel.getReview(movie?.id)
         detailsViewModel.reviews.observe(this) { reviews ->
             adapter.submitData(lifecycle, reviews)
+        }
+    }
+
+    private fun getVideos(movie: Movie?) {
+        binding.rvVideos.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val adapter = VideosAdapter()
+        binding.rvVideos.adapter = adapter
+        detailsViewModel.getVideos(movie?.id)
+        detailsViewModel.videos.observe(this) { videos ->
+            adapter.setData(listOf(videos.first { it.type.contains("Trailer") }))
         }
     }
 

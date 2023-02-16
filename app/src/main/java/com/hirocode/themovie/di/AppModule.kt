@@ -11,10 +11,11 @@ val useCaseModule = module {
     factory<GenresUseCase> { GenresInteractor(get()) }
     factory<DiscoverUseCase> { DiscoverInteractor(get()) }
     factory<ReviewsUseCase> { ReviewsInteractor(get()) }
+    factory<VideosUseCase> { VideosInteractor(get()) }
 }
 
 val viewModelModule = module {
     viewModel { GenresViewModel(get()) }
     viewModel { DiscoverViewModel(get()) }
-    viewModel { DetailsViewModel(get()) }
+    viewModel { DetailsViewModel(get(), get()) }
 }

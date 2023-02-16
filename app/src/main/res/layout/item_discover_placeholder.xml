@@ -21,7 +21,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/img_item_poster"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:background="@color/placeholder"
@@ -51,7 +50,6 @@
         tools:text="Title" />
 
     <RatingBar
-        android:id="@+id/rb_item_vote"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -141,6 +141,29 @@
                 tools:text="@string/overview" />
 
             <TextView
+                android:id="@+id/tv_trailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/trailer"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/overview" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_videos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_trailer"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_videos" />
+
+            <TextView
                 android:id="@+id/tv_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,7 +173,7 @@
                 android:textColor="?attr/colorOnBackground"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/overview" />
+                app:layout_constraintTop_toBottomOf="@+id/rv_videos" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_review"
