@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hirocode.themovie.R
 import com.hirocode.themovie.core.domain.model.Movie
+import com.hirocode.themovie.core.utils.BASE_IMAGE_URL
 import com.hirocode.themovie.databinding.ItemDiscoverBinding
 import com.hirocode.themovie.ui.details.DetailsActivity
 
@@ -33,9 +34,9 @@ class DiscoverAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Movie) {
             Glide.with(itemView)
-                .load("https://image.tmdb.org/t/p/original" + data.posterPath)
+                .load(BASE_IMAGE_URL + data.posterPath)
                 .apply(
-                    RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error)
+                    RequestOptions.placeholderOf(R.color.placeholder).error(R.drawable.ic_error)
                 )
                 .centerCrop()
                 .into(binding.imgItemPoster)

@@ -6,6 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.hirocode.themovie.BuildConfig.YT_API_KEY
+import com.hirocode.themovie.R
 import com.hirocode.themovie.core.domain.model.Videos
 import com.hirocode.themovie.databinding.ActivityVideosBinding
 
@@ -24,7 +26,7 @@ class VideosActivity : YouTubeBaseActivity() {
             intent.getParcelableExtra("videos")
         }
 
-        binding.youtubePlayer.initialize("AIzaSyB2AehTSv4mvRnw2GsgCNdMZthoocRufI0", object : YouTubePlayer.OnInitializedListener {
+        binding.youtubePlayer.initialize(YT_API_KEY, object : YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(
                 p0: YouTubePlayer.Provider?,
                 p1: YouTubePlayer?,
@@ -39,7 +41,7 @@ class VideosActivity : YouTubeBaseActivity() {
                 p0: YouTubePlayer.Provider?,
                 p1: YouTubeInitializationResult?
             ) {
-                Snackbar.make(binding.root, "Failed to initialize youtube player", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, getString(R.string.failed_initialize), Snackbar.LENGTH_SHORT).show()
             }
 
         })

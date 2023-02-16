@@ -1,6 +1,7 @@
 package com.hirocode.themovie.core.data.source.remote
 
 import android.util.Log
+import com.hirocode.themovie.BuildConfig.API_KEY
 import com.hirocode.themovie.core.data.source.remote.network.ApiResponse
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.data.source.remote.response.GenresItem
@@ -13,7 +14,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getGenres(): Flow<ApiResponse<List<GenresItem>>> {
         return flow {
             try {
-                val response = apiService.getGenres("6d754783e28255649713de5092888da4")
+                val response = apiService.getGenres(API_KEY)
                 val dataArray = response.genres
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))

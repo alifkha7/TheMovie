@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hirocode.themovie.core.domain.model.Videos
+import com.hirocode.themovie.core.utils.BASE_THUMBNAIL_URL
+import com.hirocode.themovie.core.utils.QUALITY
 import com.hirocode.themovie.databinding.ItemVideosBinding
 import com.hirocode.themovie.ui.videos.VideosActivity
 
@@ -35,7 +37,7 @@ class VideosAdapter : RecyclerView.Adapter<VideosAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemVideosBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Videos) {
             Glide.with(itemView.context)
-                .load("https://img.youtube.com/vi/" + data.key + "/hqdefault.jpg")
+                .load(BASE_THUMBNAIL_URL + data.key + QUALITY)
                 .centerCrop()
                 .into(binding.thumbnail)
             itemView.setOnClickListener {

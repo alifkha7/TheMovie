@@ -11,6 +11,7 @@ import com.hirocode.themovie.core.domain.model.Movie
 import com.hirocode.themovie.core.ui.LoadingStateAdapter
 import com.hirocode.themovie.core.ui.ReviewsAdapter
 import com.hirocode.themovie.core.ui.VideosAdapter
+import com.hirocode.themovie.core.utils.BASE_IMAGE_URL
 import com.hirocode.themovie.databinding.ActivityDetailsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.lang.StrictMath.abs
@@ -47,11 +48,11 @@ class DetailsActivity : AppCompatActivity() {
             }
         }
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/original" + movie?.backdropPath)
+            .load(BASE_IMAGE_URL + movie?.backdropPath)
             .centerCrop()
             .into(binding.backdrop)
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/original" + movie?.posterPath)
+            .load(BASE_IMAGE_URL + movie?.posterPath)
             .centerCrop()
             .into(binding.poster)
         binding.title.text = movie?.title

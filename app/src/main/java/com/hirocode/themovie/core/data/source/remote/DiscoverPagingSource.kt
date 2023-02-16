@@ -2,6 +2,7 @@ package com.hirocode.themovie.core.data.source.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.hirocode.themovie.BuildConfig.API_KEY
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.data.source.remote.response.MoviesItem
 
@@ -14,7 +15,7 @@ class DiscoverPagingSource(private val apiService: ApiService, private val genre
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MoviesItem> {
         return try {
             val page = params.key ?: INITIAL_PAGE_INDEX
-            val responseData = apiService.getDiscover("6d754783e28255649713de5092888da4", page, genreId)
+            val responseData = apiService.getDiscover(API_KEY, page, genreId)
 
             LoadResult.Page(
                 data = responseData.results,

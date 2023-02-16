@@ -16,6 +16,7 @@ import com.hirocode.themovie.core.domain.repository.IDiscoverRepository
 import com.hirocode.themovie.core.domain.repository.IGenresRepository
 import com.hirocode.themovie.core.domain.repository.IReviewsRepository
 import com.hirocode.themovie.core.domain.repository.IVideosRepository
+import com.hirocode.themovie.core.utils.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -34,7 +35,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

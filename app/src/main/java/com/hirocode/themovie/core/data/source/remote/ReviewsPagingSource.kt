@@ -2,6 +2,7 @@ package com.hirocode.themovie.core.data.source.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.hirocode.themovie.BuildConfig.API_KEY
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.data.source.remote.response.ReviewsItem
 
@@ -14,7 +15,7 @@ class ReviewsPagingSource(private val apiService: ApiService, private val movieI
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ReviewsItem> {
         return try {
             val page = params.key ?: INITIAL_PAGE_INDEX
-            val responseData = apiService.getReviews(movieId, "6d754783e28255649713de5092888da4", page)
+            val responseData = apiService.getReviews(movieId, API_KEY, page)
 
             LoadResult.Page(
                 data = responseData.results,

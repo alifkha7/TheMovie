@@ -1,6 +1,7 @@
 package com.hirocode.themovie.core.data.source.remote
 
 import android.util.Log
+import com.hirocode.themovie.BuildConfig.API_KEY
 import com.hirocode.themovie.core.data.source.remote.network.ApiService
 import com.hirocode.themovie.core.data.source.remote.response.VideosItem
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +13,7 @@ class VideosDataSource(private val apiService: ApiService) {
     fun getVideos(movieId: Int?): Flow<List<VideosItem>> {
         return flow {
             try {
-                val response = apiService.getVideos(movieId, "6d754783e28255649713de5092888da4")
+                val response = apiService.getVideos(movieId, API_KEY)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()){
                     emit(response.results)

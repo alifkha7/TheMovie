@@ -17,4 +17,5 @@
     <string name="trailer">Trailer</string>
     <string name="thumbnail">Thumbnail</string>
     <string name="play">Play</string>
+    <string name="failed_initialize">"Failed to initialize youtube player"</string>
 </resources>
