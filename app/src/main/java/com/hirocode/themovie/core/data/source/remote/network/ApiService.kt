@@ -1,5 +1,6 @@
 package com.hirocode.themovie.core.data.source.remote.network
 
+import com.hirocode.themovie.core.data.source.remote.response.VideosResponse
 import com.hirocode.themovie.core.data.source.remote.response.DiscoverResponse
 import com.hirocode.themovie.core.data.source.remote.response.GenresResponse
 import com.hirocode.themovie.core.data.source.remote.response.ReviewsResponse
@@ -26,4 +27,10 @@ interface ApiService {
         @Query("api_key") api_key: String,
         @Query("page") page: Int
     ): ReviewsResponse
+
+    @GET("movie/{movie_id}/videos")
+    suspend fun getVideos(
+        @Path("movie_id") movie_id: Int?,
+        @Query("api_key") api_key: String,
+    ): VideosResponse
 }
