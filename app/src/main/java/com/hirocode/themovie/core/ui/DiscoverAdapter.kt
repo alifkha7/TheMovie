@@ -1,5 +1,6 @@
 package com.hirocode.themovie.core.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -10,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.hirocode.themovie.R
 import com.hirocode.themovie.core.domain.model.Movie
 import com.hirocode.themovie.databinding.ItemDiscoverBinding
+import com.hirocode.themovie.ui.details.DetailsActivity
 
 class DiscoverAdapter :
     PagingDataAdapter<Movie, DiscoverAdapter.ViewHolder>(DIFF_CALLBACK) {
@@ -39,11 +41,11 @@ class DiscoverAdapter :
                 .into(binding.imgItemPoster)
             binding.tvItemTitle.text = data.title
             binding.rbItemVote.rating = (data.voteAverage / 2).toFloat()
-//            itemView.setOnClickListener {
-//                val detail = Intent(itemView.context, DetailsActivity::class.java)
-//                detail.putExtra("detail", data)
-//                itemView.context.startActivity(detail)
-//            }
+            itemView.setOnClickListener {
+                val detail = Intent(itemView.context, DetailsActivity::class.java)
+                detail.putExtra("detail", data)
+                itemView.context.startActivity(detail)
+            }
         }
     }
 

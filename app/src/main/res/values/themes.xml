@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.TheMovie" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -17,6 +17,10 @@
     <style name="Theme.TheMovie.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DiscoverMovie.Details" parent="Theme.TheMovie.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.TheMovie.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

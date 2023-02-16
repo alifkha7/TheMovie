@@ -7,4 +7,7 @@
     <string name="retry">Retry</string>
     <string name="results_not_loaded">Results not loaded</string>
     <string name="no_results">No results found</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="overview">Overview</string>
+    <string name="backdrop">Backdrop</string>
 </resources>
